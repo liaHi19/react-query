@@ -4,25 +4,25 @@
       "id": 1,
       "title": "New Zealand",
       "population": "5 000 000",
-      "image": "/images/new-zealand"
+      "image": "/images/new-zealand.jpg"
     },
     {
       "id": 2,
       "title": "Japan",
       "population": "125 000 000",
-      "image": "/images/japan"
+      "image": "/images/japan.jpg"
     },
     {
       "id": 3,
       "title": "Poland",
       "population": "20 000 000",
-      "image": "/images/poland"
+      "image": "/images/poland.jpg"
     },
     {
       "id": 4,
       "title": "Canada",
       "population": "38 000 000",
-      "image": "/images/canada"
+      "image": "/images/canada.jpeg"
     }
   ]
 }
