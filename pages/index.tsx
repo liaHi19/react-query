@@ -1,25 +1,14 @@
 import type { NextPage } from "next";
-import { useQuery } from "@tanstack/react-query";
 
 import Head from "next/head";
 import Image from "next/image";
 
-import { CountryService } from "./app/services/country.service";
+import { useCountries } from "../app/hooks/useCountries";
 
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
-  const { data: response, isLoading } = useQuery(
-    ["countries"],
-    () => CountryService.getAll(),
-    {
-      onSuccess: ({ data }) => {},
-      onError: (error: any) => {
-        alert(error.message);
-      },
-    }
-  );
-  console.log(response);
+  const { countries, isLoading } = useCountries();
 
   return (
     <div className={styles.container}>
@@ -32,9 +21,9 @@ const Home: NextPage = () => {
 
         {isLoading ? (
           <p>Loading....</p>
-        ) : response?.data?.length ? (
+        ) : countries?.length ? (
           <div className={styles.grid}>
-            {response?.data?.map(({ id, title, population, image }) => (
+            {countries?.map(({ id, title, population, image }) => (
               <div key={id} className={styles.card}>
                 <Image src={image} alt={title} width={294} height={288} />
                 <h2>{title}</h2>
