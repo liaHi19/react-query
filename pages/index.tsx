@@ -9,7 +9,7 @@ import { useCountries } from "../app/hooks/useCountries";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
-  const { countries, isLoading } = useCountries();
+  const { countries, isLoading, refetch } = useCountries();
 
   return (
     <div className={styles.container}>
@@ -39,6 +39,16 @@ const Home: NextPage = () => {
           </div>
         ) : (
           <p>There are no countries</p>
+        )}
+        {!countries?.length && (
+          <button
+            className={styles.btn}
+            onClick={() => {
+              refetch();
+            }}
+          >
+            Fecth countries
+          </button>
         )}
       </main>
     </div>
